@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>calculatrice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="9370DB">
+    <style>
+      body{background:white;text-align:center;display:fx;}
+      p{border-radius:15px;background:white;padding:5px 12px 12px 5px;color:blue;transform:scale(0.8);background:violet;border:2px dashed blue;font-size:30px;}
+      input{border-radius:20px;font-size:20px;padding:6px;border:2px dashed orangered;}
+      button{border-radius:10px;font-size:25px;display:block;text-align:center;align-items:center;}
+      input:hover{background:darkcyan;transform:scale(0.9);}
+      .cart{border-radius:15px;border:3px solid black;display:block;align-items:center;justify-content:center;width:fit-content;background:#a2a091;margin-bottom:40px}
+      h1{background:rosybrown;color:#331d86;}
+      h3{margin-top:10px;margin-bottom:20px;}
+    </style>
+  </head>
+  <body>
+    <h1>calculatrice-simple</h1>
+    <div class="cart">
+    <input id="nombre1" type="number" placeholder="entrer le nombre1">
+    <select id="operateur">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <br><br>
+    <input id="nombre2" type="number" placeholder="entrer le nombre2">
+    <button id="calculer">=</button>
+    <button id="effacer">C</button>
+    <p id="resultat">resultat</p>
+    </div>
+    <script>
+      const inputN1 = document.getElementById("nombre1");
+      const inputN2 = document.getElementById("nombre2");
+     const btn = document.getElementById("calculer");
+      const selectOp = document.getElementById("operateur");
+      const affichage = document.getElementById("resultat");
+      const vider = document.getElementById("effacer");
+     btn.addEventListener("click", function() {
+        let valeurN1 = Number(inputN1.value);
+        let valeurN2 = Number(inputN2.value);
+        let valeurOp = selectOp.value;
+        let resultat;
+        if(valeurOp == "+"){
+          resultat = valeurN1 + valeurN2;
+        }
+        if(valeurOp == "-"){
+          resultat = valeurN1 - valeurN2;
+        }
+       if(valeurOp == "*"){
+         resultat = valeurN1 * valeurN2;
+       }
+       if(valeurOp == "/"){
+         if(valeurN2 == 0){
+         resultat = "Maths error : un nombre n'est pas divisible par 0 ";
+       } else {
+         resultat = valeurN1 / valeurN2
+       }
+         }
+        affichage.innerText = resultat;
+      });
+      vider.addEventListener("click" ,function effacer() {
+        let inputN1 = "";
+        let inputN2 = "";
+        let resultat;
+      affichage.innerText = "";
+      });
+        </script>
+    <div class="carte">
+      <h3>CREÉ PAR <span style="color:darkgoldenrod;font-weight:bold;text-decoration:underline;"> EL WIDALO </span> DEVELOPPEUR WEB ET MOBILE</h3>
+    </body>
+</html>
